@@ -1,0 +1,26 @@
+<!-- Modify this page to use a select and an input to generate a calendar for any month and year -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Calendar</title>
+        <link rel='stylesheet' href='calendar.css'>
+    </head>
+    <body>
+        <div class='calendarWrapper'>
+            <div class='calendarTitle'></div>
+            
+            
+            <select name="monthSelector" id="monthSelector">
+                <option value="months">Month</option>
+            </select>
+            <input  type="text" name="yearFind" id="yearFind" placeholder="year">
+            
+
+            <button type="button"  id="GoButton">Go</button>
+            <div class='calendar' id='calendarDays'></div>
+        </div>
+        </div>
+    </body>
+    <script src='./calendar.js'></script>
+</html>
