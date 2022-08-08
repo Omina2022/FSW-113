@@ -7,7 +7,7 @@ const lang = 'JavaScript'
 
 function chkLang(langs) {
     let result = false
-
+console.log(...langs)
     // use an array method to check whether the user included 'JavaScript' in their
     // list of languages
 
@@ -17,3 +17,10 @@ function chkLang(langs) {
     else
         obj.innerText = `Sorry,\nyou don't know ${lang}.`
 }
+
+document.querySelectorAll('.some-class').forEach(item =>{
+    item.addEventsListener('click', chkLang =>{
+
+    })
+})
+document.getElementById("submit").innerHTML=lang.toString
