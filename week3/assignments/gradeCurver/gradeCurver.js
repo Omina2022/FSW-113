@@ -1,5 +1,6 @@
 // declare each of the variables marked with "**" in the appropriate scope and using the appropriate type
-
+let mean =0
+let gradeSlice=0
 // create an event listener that calls the curveGrade() function when the Curve It!! button is clicked
 
 // create an event listener that resets the scores and grades to their defaults when the Reset button is clicked
@@ -38,25 +39,23 @@ function convertArray(obj) {
 // empty lines, can you get the number of lines down to 8?
 
 function curveGrades() {
-    sum = (accumulator, currentValue) => accumulator + currentValue
+    const sum = (accumulator, currentValue) => accumulator + currentValue
     
 
-    sumGrades = (array) => array.reduce(sum)
+   const  sumGrades = (array) => array.reduce(sum)
     
 
     let aryGrades = convertArray(document.querySelector('#scores'))
 
-    minGrade = (a, b) => Math.min(a * b)
+    const minGrade = (a, b) => Math.min(a * b)
    
     
-   maxGrade = (a, b) => Math.max(a * b)
+   const maxGrade = (a, b) => Math.max(a * b)
   
     
     let mean = sumGrades(aryGrades) / aryGrades.length
 
-    let range = maxGrade - minGrade
-
-    gradeSlice = range / 5
+    gradeSlice =(maxGrade - minGrade)/ 5
 
     aryGrades.forEach(applyBell)
 
@@ -64,5 +63,7 @@ function curveGrades() {
     // write the value of aryGrades to the grades div in the HTML document
 }
 
-document.getElementById('submit'). addEventListener("click", curveGrades )
-document.getElementById('reset').addEventListener('click',convertArray )
+document.getElementById('submit').addEventListener("click", curveGrades )
+document.getElementById('reset').addEventListener('click',function() {
+    document.querySelector("reset").value=
+})

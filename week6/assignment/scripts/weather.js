@@ -3,7 +3,7 @@
 // declare any variables needed
 
 // create an event listener for the click of the goBttn that calls a function to fetch the weather data
-
+document.getElementById("goBttn")
 // create a function that calls the function that queries the api 
 // and then creates promises that will call a function to write the weather data to the HTML page        
 
