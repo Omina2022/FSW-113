@@ -1,27 +1,35 @@
 // Declare any necessary variables.
+
+let myStudent; 
 // Add am evemt listener that responds to the click of the "print" button by calling a function to instantiate
 //  a new student object, and another function to print the certificate.
 
-document.getElementById('print').addEventListener('click', newStudent);
-function newStudent(){
-    document.getElementsByName('student-wrapper').innerHTML= PrintCertificatet();
-}
+document.getElementById('print').addEventListener('click', () =>{
+    newStudent();
+    PrintCertificatet();
+
+});
+
 // Add an event listener that responds to the click of the reset button by resetting all the values
 // both in the form and in the certificate.
-document.getElementsById('reset').addEventListener('click', newStudent)
+document.getElementsById('reset').addEventListener('click', () =>{
+    document.querySelector("#studentName").value =""
+})
 // Create a function that instantiates a new student object with the input from the HTML form.
-function myFunction (){
-let x = document.getElementsByName('cell');
-let text="instantiates";
-let i;
-for (i=0; i<x.length; i++){
-    text +=x.elements[i].value
-}
-document.getElementById('print').innerHTML=text;
+
+function newStudent(){
+    let studentName = document.querySelector("#studentName").value
+    let className = document.querySelector("#className").value
+    let studentScores = string2Array(document.querySelector("#studentScores").value)
+    let possibleScores = string2Array(document.querySelector("#possibleScores").value)
+
+    myStudent = new Student (studentName,className, studentScores, possibleScores )
 }
 // Create a function that fills in the student's name, class name, and calculated grade on the certificate .
-let newStudent =myFunction('studentName', 'className', 'studentScores', 'possibleScores')
-document.getElementById('print').innerHTML= x;
-return 
+function PrintCertificatet(){
+    document.querySelector("#certGrade").value =myStudent.calcLetterGrade()
+}
 // Create a function that converts the contents of a comma-separated text string to a numeric array.
 // You can use this function when instantiating the arrays in the student object.
+
+const string2Array =str => str.split (',').map(x => parseInt(x));
