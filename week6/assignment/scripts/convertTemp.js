@@ -2,3 +2,8 @@
 
 
 // Depending on the location of the city, the function should return degrees in either fahrenheit or centigrade.
+
+
+
+import {degree1} from './weather.js';
+console.log(degree1)
