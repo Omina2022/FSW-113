@@ -17,11 +17,11 @@ function combineLists() {
     let array7=[document.querySelector("li:first-child").textContent]
     let array8=[document.querySelector("li:first-child").textContent]
     let array9=[document.querySelector("li:first-child").textContent]
-    console.log(array0, array1)
-  
+    // console.log(array0, array1)
     let arrayCombine =[...array0, ...array1, ...array2, ...array3, ...array4, ...array5, ...array6, ...array7, ...array8, ...array9];
-    document.write(arrayCombine);
-    arrayCombine.sort = document.getElementById("AllItems")
+    // document.write(arrayCombine);
+    arrayCombine.sort = document.getElementById("AllItems").innerHTML=arrayCombine
+    document.getElementById("AllItem").innerHTML=arrayCombine
 }
 // The following code is a bonus addition that facilitates data entry on the scavenger.html document.
 // If you first click in one of the textareas, you can then click scavenger hunt items in the unordered
