@@ -1,5 +1,5 @@
 // Declare any necessary variables.
-
+ import Student from "./student.js"
 let myStudent; 
 // Add am evemt listener that responds to the click of the "print" button by calling a function to instantiate
 //  a new student object, and another function to print the certificate.
@@ -12,7 +12,8 @@ document.getElementById('print').addEventListener('click', () =>{
 
 // Add an event listener that responds to the click of the reset button by resetting all the values
 // both in the form and in the certificate.
-document.getElementsById('reset').addEventListener('click', () =>{
+document.getElementById('reset').addEventListener('click', () =>{
+   
     document.querySelector("#studentName").value =""
 })
 // Create a function that instantiates a new student object with the input from the HTML form.
@@ -27,7 +28,9 @@ function newStudent(){
 }
 // Create a function that fills in the student's name, class name, and calculated grade on the certificate .
 function PrintCertificatet(){
-    document.querySelector("#certGrade").value =myStudent.calcLetterGrade()
+    document.querySelector("#certStudentName").innerHTML=myStudent.studentName
+    document.querySelector("#certClassName").innerHTML=myStudent.className
+
 }
 // Create a function that converts the contents of a comma-separated text string to a numeric array.
 // You can use this function when instantiating the arrays in the student object.
