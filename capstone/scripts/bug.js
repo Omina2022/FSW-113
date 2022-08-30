@@ -14,21 +14,29 @@ class Bug {
     addBug() {
         // Create a div element that displays the bug information input by the user within the "listWrapper" DOM element. 
         // It should also contain buttons whose onClick events will call the deleteBug() and resolveBug() methods (see below). 
-id++
+   
     }
-
+    
     deleteBug() {
         // Create code that will remove the appropriate bug from the DOM. 
         // You may need to Google how to remove an element from the DOM.
+        this.reportedByName = arguments[0]
     }
 
     resolveBug() {
         // Create code that changes the appropriate bug report to a darker color
-        
+
     }
 }
 
 function reportBug() {
     // Create code that instantiates the Bug class with the data input by the 
     // user in the index.html form. Then call the method to add the new bug report.
+objBug = new Bug(
+    document.querySelector("#reportedBy").value,
+    document.querySelector("#system").selectedOptions[0].text,
+    document.querySelector("#subSystem").selectedOptions[0].text,
+    document.querySelector("#bugDesc").value,
+)
+objBug.addBug()
 }

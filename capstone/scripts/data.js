@@ -2,17 +2,18 @@
 // whose parentID is zero.
 
 function getSystems(parentID, element) {
-  
-    
 
-    
-   
-   
-   
-   
-   
-   
-   
+    fetch('data.json')
+        .then(function (response) {
+            return response.json()
+        })
+        .then(function (data) {
+            console.log(data)
+        })
+        .catch(function (error) {
+            alert(error)
+        })
+
     // This function will accept two arguments (see week three): the parentID and the DOM element that will ultimately receive the data. 
     // Code this function as an asynchronous operation that will fetch data from the data.json file (see week three).
     // After receiving the JSON data, the asynchronous promise should use a higher order array method (see week two) to return only 
@@ -30,12 +31,12 @@ function populateDD(filterArray, element) {
     // the select element's options using the sysName and sysID from the passed in array (see week five).
 }
 
-document.querySelector('#system').addEventListener("change", function() {
-   let id = document.querySelector("#system").value
-   getSystems(id, document.querySelector("#subSystem"))
+document.querySelector('#system').addEventListener("change", function () {
+    let id = document.querySelector("#system").value
+    getSystems(id, document.querySelector("#subSystem"))
 }
     // This eventListener responds to a change to the "system" select element by passing the selected value from the "system" element 
     // to the "getSystems()" function along with the "subSystem" DOM element so that the second drop-down list is populated with the 
     // appropriate sub-systems from the data.json file.
 )
-getSystems (0, document.querySelector("#system"))
+getSystems(0, document.querySelector("#system"))
