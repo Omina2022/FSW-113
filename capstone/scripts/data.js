@@ -1,5 +1,6 @@
 // Call the "getSystems()" function in such a way that when the page loads, the "system" select element displays the three sytems 
 // whose parentID is zero.
+getSystems(0, document.querySelector("#system"))
 
 function getSystems(parentID, element) {
 
@@ -9,10 +10,14 @@ function getSystems(parentID, element) {
         })
         .then(function (data) {
             console.log(data)
+            let filterData = data.systems.filter(e => e.parentID === Number(parentID))
+            populateDD(filterData, element)
+console.log(filterData)
         })
         .catch(function (error) {
             alert(error)
         })
+
 
     // This function will accept two arguments (see week three): the parentID and the DOM element that will ultimately receive the data. 
     // Code this function as an asynchronous operation that will fetch data from the data.json file (see week three).
@@ -25,6 +30,12 @@ function getSystems(parentID, element) {
 }
 
 function populateDD(filterArray, element) {
+    element.options[0]= new Option ("Select an Item")
+    
+    for (i=0; i < filterArray.length; i++){
+        element.options[i+1] = new Option(filterArray [i].sysName, filterArray[i].sysID)
+    }
+
     // This function receives the array and DOM element from the "getSystems()" function (above). This function should fill the 
     // appropriate DOM element with options from which the user can select. However, since that DOM element has an "onChange" event, this
     // function first needs to add an option that says "Select an Item". Then use a looping mechanism (week one) to create the rest of  
@@ -33,10 +44,10 @@ function populateDD(filterArray, element) {
 
 document.querySelector('#system').addEventListener("change", function () {
     let id = document.querySelector("#system").value
+    console.log(id)
     getSystems(id, document.querySelector("#subSystem"))
 }
     // This eventListener responds to a change to the "system" select element by passing the selected value from the "system" element 
     // to the "getSystems()" function along with the "subSystem" DOM element so that the second drop-down list is populated with the 
     // appropriate sub-systems from the data.json file.
 )
-getSystems(0, document.querySelector("#system"))
